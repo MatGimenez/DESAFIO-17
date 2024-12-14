@@ -1,0 +1,31 @@
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.card {
+    padding: 0;
+    margin-top: 2rem;
+    width: 20rem;
+}
+
+.card-body {
+    margin: 1rem;
+    padding:0;
+}
+.list-group {
+    height: 100%;
+}
+.list-group h6{
+    font-size: 1rem;
+    font-weight: 300;
+}
+.ingredientes {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
