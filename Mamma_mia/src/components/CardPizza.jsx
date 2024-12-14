@@ -12,7 +12,13 @@ const CardPizza = (props) => {
                     <h6>Ingredientes:</h6>
                     <p className="card-text ingredientes">🍕 { props.ingredientes }</p>
                 </li>
-                <li className="list-group-item precio">Precio: ${ props.precio }</li>
+                <li className="list-group-item precio">
+                    <p>Precio: ${ props.precio }</p>
+                    <div className='botones'>
+                        <button className='ver-mas'>Ver más 👀</button>
+                        <button className='add'>Añadir 🛒</button>
+                    </div>
+                </li>
             </ul>
         </article>
     )

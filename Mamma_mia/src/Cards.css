@@ -6,7 +6,7 @@
 .card {
     padding: 0;
     margin-top: 2rem;
-    width: 20rem;
+    width: 22rem
 }
 
 .card-body {
@@ -17,15 +17,34 @@
     height: 100%;
 }
 .list-group h6{
+    text-align: center;
     font-size: 1rem;
     font-weight: 300;
 }
 .ingredientes {
+    text-align: center;
     font-size: 0.75rem;
     font-weight: 400;
 }
 
-.precio {
+.precio p {
+    text-align: center;
     font-size: 1.2rem;
     font-weight: 500;
+}
+.botones {
+    display: flex;
+    justify-content: space-around;
+}
+.botones button{
+    border: solid 1px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.ver-mas{
+    background-color: transparent;
+}
+.add {
+    background-color: #323232;
+    color: white;
 }
