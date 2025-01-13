@@ -20,7 +20,7 @@ const Navbar = () => {
                         <li className="item nav-item"><button>{token == false ?  "🔐 Register": "🔒 Logout" }</button></li>
                     </div>
                     <div className='lista2 navbar-nav'>
-                        <li className="item nav-item compra-total"><button>🛒 Total:$ {total.toLocaleString()}</button></li>
+                        <li className="item nav-item compra-total"><button>🛒 Total:$ {total.toLocaleString("es-CL")}</button></li>
                     </div>
                 </ul>
             </div>

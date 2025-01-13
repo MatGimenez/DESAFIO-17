@@ -1,7 +1,8 @@
 import Header from "./Header"
 import '../Header.css'
-import CardPizza from "./CardPizza"
+/* import CardPizza from "./CardPizza" */
 import '../Cards.css'
+import CatalogoPizzas from "./CatalogoPizzas"
 
 const Home = () => {
     return (
@@ -9,8 +10,8 @@ const Home = () => {
             <div className="header">
                 <Header />
             </div>
-            <div className="container">
-                    <CardPizza 
+            <div className="container-for-card1">
+                    {/* <CardPizza 
                         nombre="Napolitana" 
                         precio={5950} 
                         ingredientes="mozzarella, tomates, jamón, orégano" 
@@ -28,7 +29,8 @@ const Home = () => {
                         precio={6950} 
                         ingredientes="mozzarella, pepperoni, orégano" 
                         imagen="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fpizza-1239077_640_com.jpg?alt=media&token=e7cde87a-08d5-4040-ac54-90f6c31eb3e3"
-                    />
+                    /> */}
+                    <CatalogoPizzas />
             </div>
         </>
     )
