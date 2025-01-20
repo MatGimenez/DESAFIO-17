@@ -2,9 +2,25 @@ import Header from "./Header"
 import '../Header.css'
 /* import CardPizza from "./CardPizza" */
 import '../Cards.css'
-import CatalogoPizzas from "./CatalogoPizzas"
+/* import CatalogoPizzas from "./CatalogoPizzas" */
+import { useEffect, useState } from "react"
+import PizzaCard from "./PizzaCard";
 
 const Home = () => {
+    const [Pizzas, setPizzas] = useState([])
+
+    const getData = async () => {
+        const response = await fetch("http://localhost:5000/api/pizzas");
+        const data = await response.json();
+        setPizzas(data);
+    };
+
+    useEffect(()=> {
+        getData()
+    },[]
+    )
+
+
     return (
         <>
             <div className="header">
@@ -30,7 +46,20 @@ const Home = () => {
                         ingredientes="mozzarella, pepperoni, orégano" 
                         imagen="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fpizza-1239077_640_com.jpg?alt=media&token=e7cde87a-08d5-4040-ac54-90f6c31eb3e3"
                     /> */}
-                    <CatalogoPizzas />
+
+                    {/* //*HITO 3 */}
+                    {/* <CatalogoPizzas /> */}
+
+                    {/* //* HITO 4 */}
+                    <article className="container">
+                            {Pizzas.map(pizza => <PizzaCard 
+                            img={pizza.img}
+                            name={pizza.name}
+                            ingredients={pizza.ingredients}
+                            price={pizza.price}
+                            key={pizza.id}/>)
+                            }
+                    </article>
             </div>
         </>
     )
