@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import PizzaCard from "./PizzaCard";
+/* import PizzaCard from "./PizzaCard"; */
 
 
 const Pizza = () => {
-    const [Pizzases, setPizzas] = useState([])
+    const [Pizzas, setPizzas] = useState([])
 
     const getData = async () => {
         const response = await fetch("http://localhost:5000/api/pizzas/p001");
@@ -18,17 +18,18 @@ const Pizza = () => {
 
     return (
         <article className="container mt-5" style={{ display:"block"}}>
-            <h1>La Pizza {Pizzases.name}</h1>
-            <h4 className="mb-4">Precio: {Pizzases.price.toLocaleString("es-Cl")}</h4>
-            <img src={Pizzases.img} alt="" style={{width:"500px", borderRadius:"10px"}} />
+            <h1>La Pizza {Pizzas.name}</h1>
+            <h4 className="mb-4">Precio: {Pizzas.price.toLocaleString("es-Cl")}</h4>
+            <img src={Pizzas.img} alt="" style={{width:"500px", borderRadius:"10px"}} />
             
             <h5 className="mt-2">Sus Ingredientes son:</h5>
             <p>🍕 {
-                Pizzases.ingredients.map((ingred, recorrido) => (
-                    <span key={ingred}>{ingred}{recorrido < Pizzases.ingredients.length - 1 && ", "}</span>))
+                Pizzas.ingredients.map((ingred, recorrido) => (
+                    <span key={ingred}>{ingred}{recorrido < Pizzas.ingredients.length - 1 && ", "}</span>))
                 }
             </p>
-            <p className="mt-5">{Pizzases.desc}</p>
+            <p className="mt-5">{Pizzas.desc}</p>
+            <button className='add'>Añadir 🛒</button>
         </article>
     )
 }
