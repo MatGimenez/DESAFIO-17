@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const total = 25000;
-    const token = true;
+    const token = false;
 
     return (
         <nav className='navegador navbar navbar-expand-lg'>
@@ -18,10 +18,12 @@ const Navbar = () => {
                     <div className='lista1 navbar-nav'>
                         <li className="item nav-item"><Link to="/"><button>🍕 Home</button></Link></li>
                         <li className="item nav-item">
+                            { /* Cambiar token de false a true, para revisar botones */}
                             {token == false ? <Link to="/Login"><button>🔓 Login</button></Link> : <Link to="/Profile"><button>👤 Profile</button></Link>}
                             {/* <Link to="/Login"><button>{token == false ? "🔓 Login" :"👤 Profile" }</button></Link> */}
                         </li>
                         <li className="item nav-item">
+                            { /* Cambiar token de false a true, para revisar botones */}
                             {token == false ? <Link to="/Register"><button>🔐 Register</button></Link> : <Link to="/"><button>🔒 Logout</button></Link>}
                             {/* <Link to="/Register"><button>{token == false ?  "🔐 Register": "🔒 Logout" }</button></Link> */}
                             
