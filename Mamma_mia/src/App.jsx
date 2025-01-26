@@ -22,7 +22,7 @@ function App() {
           <Route path='/Register' element={<Register />} />
           <Route path='/Cart' element={<Cart />} />
           <Route path='/Profile' element={<Profile />} />
-          <Route path='/pizza/p001' element={<Pizza />} />
+          <Route path='/Pizza/p001' element={<Pizza />} />
           <Route path='/404' element={<NotFound />} />
           
         {/* <Login /> */}
