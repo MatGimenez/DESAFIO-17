@@ -9,7 +9,7 @@ const NotFound = () => {
                 <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
                     <h2 className="fw-semibold">Te equivocaste de Pizza-Página 😥</h2>
                     <br />
-                    <Link to="/"><button className="ver-mas" style={{borderRadius:"5px"}}>🍕 Volver a Nostra Mamma</button></Link>
+                    <Link to="/"><button className="ver-mas" style={{borderRadius:"5px"}}>🍕 Volver a Mamma Mia</button></Link>
                 </div>
             </div>
 

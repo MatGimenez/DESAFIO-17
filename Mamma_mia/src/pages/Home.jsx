@@ -10,14 +10,18 @@ const Home = () => {
     const [Pizzas, setPizzas] = useState([])
 
     const getData = async () => {
-        const response = await fetch("http://localhost:5000/api/pizzas");
-        const data = await response.json();
-        setPizzas(data);
+        try {
+            const response = await fetch("http://localhost:5000/api/pizzas");
+            const data = await response.json();
+            setPizzas(data);
+        }
+        catch (error) { console.log(error) }
+
     };
 
-    useEffect(()=> {
+    useEffect(() => {
         getData()
-    },[]
+    }, []
     )
 
 
@@ -27,7 +31,7 @@ const Home = () => {
                 <Header />
             </div>
             <div className="container-for-card1">
-                    {/* <CardPizza 
+                {/* <CardPizza 
                         nombre="Napolitana" 
                         precio={5950} 
                         ingredientes="mozzarella, tomates, jamón, orégano" 
@@ -47,19 +51,19 @@ const Home = () => {
                         imagen="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fpizza-1239077_640_com.jpg?alt=media&token=e7cde87a-08d5-4040-ac54-90f6c31eb3e3"
                     /> */}
 
-                    {/* //*HITO 3 */}
-                    {/* <CatalogoPizzas /> */}
+                {/* //*HITO 3 */}
+                {/* <CatalogoPizzas /> */}
 
-                    {/* //* HITO 4 */}
-                    <article className="container">
-                            {Pizzas.map(pizza => <PizzaCard 
-                            img={pizza.img}
-                            name={pizza.name}
-                            ingredients={pizza.ingredients}
-                            price={pizza.price}
-                            key={pizza.id}/>)
-                            }
-                    </article>
+                {/* //* HITO 4 */}
+                <article className="container">
+                    {Pizzas.map(pizza => <PizzaCard
+                        img={pizza.img}
+                        name={pizza.name}
+                        ingredients={pizza.ingredients}
+                        price={pizza.price}
+                        key={pizza.id} />)
+                    }
+                </article>
             </div>
         </>
     )

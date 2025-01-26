@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <nav className='navegador navbar navbar-expand-lg'>
             <div className='container conjunto'>
-                <h2 className='navbar-brand'>Pizzería Mammá Mia</h2> 
+                <h2 className='navbar-brand'>Pizzería Mamma Mioaa</h2> 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -30,7 +30,7 @@ const Navbar = () => {
                         </li>
                         {/* <li className="item nav-item"><Link to="/Cart"><button>🍕 Cart</button></Link></li> */}
                         {/* <li className="item nav-item"><Link to="/Profile"><button>🍕 Profile</button></Link></li> */}
-                        <li className="item nav-item">{/* <Link to="/"> */}<button>🍕 Pizza</button>{/* </Link> */}</li>
+                        <li className="item nav-item"><Link to="/Pizza/p001"><button>🍕 Pizza</button></Link></li>
                     </div>
                     <div className='lista2 navbar-nav'>
                         <li className="item nav-item compra-total"><Link to="/Cart"><button>🛒 Total:$ {total.toLocaleString("es-CL")}</button></Link></li>
