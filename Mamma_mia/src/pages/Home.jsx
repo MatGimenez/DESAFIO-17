@@ -1,10 +1,10 @@
-import Header from "./Header"
+import Header from "../components/Header"
 import '../Header.css'
 /* import CardPizza from "./CardPizza" */
 import '../Cards.css'
 /* import CatalogoPizzas from "./CatalogoPizzas" */
 import { useEffect, useState } from "react"
-import PizzaCard from "./PizzaCard";
+import PizzaCard from "../components/PizzaCard";
 
 const Home = () => {
     const [Pizzas, setPizzas] = useState([])

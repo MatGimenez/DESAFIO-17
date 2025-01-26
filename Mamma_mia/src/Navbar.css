@@ -31,6 +31,10 @@
 .detalle {
     font-weight: 500;
 } */
+.Link button{
+    list-style: none;
+    text-decoration: none;
+}
 
 
 .navegador button{
@@ -38,7 +42,10 @@
     border-radius: 5px;
     background-color: transparent;
     color: white;
+    list-style: none;
+    text-decoration: none;
 }
+
 
 .compra-total button{
     border:solid 1px aqua;
