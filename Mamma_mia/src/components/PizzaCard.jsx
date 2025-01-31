@@ -1,9 +1,19 @@
 
 import Card from "react-bootstrap/Card";
 import ListGroup from 'react-bootstrap/ListGroup';
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
 
-const PizzaCard = ({ img, name, ingredients, price }) => {
+const PizzaCard = ({ img, name, ingredients, price, count }) => {
+    const { cart, setCart } = useContext(CartContext);
+
+    const enviarPizza = (e) => {
+        e.preventDefault();
+        setCart([...cart, { img, name, ingredients, price ,count:1, id:cart.length + 1, }]);
+    }
+
+
     return (
         <>
             <Card style={{ width: "22rem", marginTop: "2rem" }}>
@@ -23,8 +33,10 @@ const PizzaCard = ({ img, name, ingredients, price }) => {
                     <ListGroup.Item style={{ textAlign: "center" }}>
                         <Card.Text style={{ fontSize: "1.2rem", fontWeight: "500" }}>Precio: ${price.toLocaleString("es-CL")}</Card.Text>
                         <div className='botones'>
-                            <button className='ver-mas'>Ver más 👀</button>
-                            <button className='add'>Añadir 🛒</button>
+                            <form onSubmit={enviarPizza}>
+                                <button className='ver-mas'>Ver más 👀</button>
+                                <button className='add'>Añadir 🛒</button>
+                            </form>
                         </div>
                     </ListGroup.Item>
                 </ListGroup>
