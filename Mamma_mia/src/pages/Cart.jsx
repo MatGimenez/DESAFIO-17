@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+
 /* import { pizzaCart } from "../assets/pizzas"; */
 /* const carritoInicial = [pizzaCart[0],pizzaCart[1],pizzaCart[2]] */
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
