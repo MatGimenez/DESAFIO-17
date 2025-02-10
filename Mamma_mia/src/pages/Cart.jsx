@@ -3,9 +3,11 @@
 /* const carritoInicial = [pizzaCart[0],pizzaCart[1],pizzaCart[2]] */
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/userContext";
 
 const Cart = () => {
     const {cart, setCart} = useContext(CartContext);
+    const {token, setToken} = useContext(UserContext);
     /* const [carrito, setCarrito] = useState(carritoInicial) */
 
 
@@ -42,7 +44,11 @@ const Cart = () => {
                 )}
             </ul>
             <div className="container" style={{display:"flex", justifyContent:"flex-start", gap:"10px"}}>
-                <button className="add" style={{borderRadius:"5px"}}>Pagar</button>
+                {token ? 
+                    <button className="add" style={{borderRadius:"5px"}}>Pagar</button> : undefined
+                
+                }
+                
                 <h4>Total: {cart.reduce((subtotal, currentValue) => subtotal + currentValue.price * currentValue.count, 0).toLocaleString("es-CL")}</h4>
             </div>
             

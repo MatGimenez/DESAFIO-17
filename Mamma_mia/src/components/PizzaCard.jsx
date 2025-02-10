@@ -3,10 +3,16 @@ import Card from "react-bootstrap/Card";
 import ListGroup from 'react-bootstrap/ListGroup';
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 
-const PizzaCard = ({ img, name, ingredients, price, count }) => {
+const PizzaCard = ({ img, name, ingredients, price, count, id}) => {
     const { cart, setCart } = useContext(CartContext);
+
+    const navigate = useNavigate();
+    const irAPizzas = (id) => {
+        navigate(`/pizzas/${id}`);
+    }
 
     const enviarPizza = (e) => {
         e.preventDefault();
@@ -33,8 +39,8 @@ const PizzaCard = ({ img, name, ingredients, price, count }) => {
                     <ListGroup.Item style={{ textAlign: "center" }}>
                         <Card.Text style={{ fontSize: "1.2rem", fontWeight: "500" }}>Precio: ${price.toLocaleString("es-CL")}</Card.Text>
                         <div className='botones'>
-                            <form onSubmit={enviarPizza}>
-                                <button className='ver-mas'>Ver más 👀</button>
+                        <button className='ver-mas' onClick={() => irAPizzas(id)}>Ver más 👀</button>
+                            <form onSubmit={enviarPizza}>    
                                 <button className='add'>Añadir 🛒</button>
                             </form>
                         </div>

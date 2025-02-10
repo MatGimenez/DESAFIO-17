@@ -5,8 +5,11 @@ import '../Cards.css'
 /* import CatalogoPizzas from "./CatalogoPizzas" */
 import { useEffect, useState } from "react"
 import PizzaCard from "../components/PizzaCard";
+/* import { useContext } from "react";
+import { PizzasContext } from "../context/PizzasContext"; */
 
 const Home = () => {
+ /*    const [Pizzas] = useContext(PizzasContext); */
     const [Pizzas, setPizzas] = useState([])
 
     const getData = async () => {

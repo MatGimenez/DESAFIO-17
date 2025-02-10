@@ -1,12 +1,21 @@
 import "../Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { UserContext } from "../context/userContext";
 
 const Navbar = () => {
-    const {cart, setCart} = useContext(CartContext);
+    const {cart} = useContext(CartContext);
     /* const total = 25000; */
-    const token = false;
+    const {token, setToken} = useContext(UserContext);
+    /* const token  = true; */
+
+    const setActiveClass = ({ isActive }) => (isActive ? "active" : "not-active");
+
+    const validarToken = () => {
+        (setToken ? setToken(false) : setToken(true));
+    }
+
 
     return (
         <nav className="navegador navbar navbar-expand-lg">
@@ -28,49 +37,49 @@ const Navbar = () => {
                 <ul className="lista navbar-nav">
                     <div className="lista1 navbar-nav">
                         <li className="item nav-item">
-                            <Link to="/">
+                            <NavLink className={setActiveClass} to="/">
                                 <button>🏠 Home</button>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="item nav-item">
                             {/* Cambiar token de false a true, para revisar botones */}
                             {token == false ? (
-                                <Link to="/Login">
+                                <NavLink  className={setActiveClass} to="/Login">
                                     <button>🔓 Login</button>
-                                </Link>
+                                </NavLink>
                             ) : (
-                                <Link to="/Profile">
+                                <NavLink className={setActiveClass} to="/Profile">
                                     <button>👤 Profile</button>
-                                </Link>
+                                </NavLink>
                             )}
                             {/* <Link to="/Login"><button>{token == false ? "🔓 Login" :"👤 Profile" }</button></Link> */}
                         </li>
                         <li className="item nav-item">
                             {/* Cambiar token de false a true, para revisar botones */}
                             {token == false ? (
-                                <Link to="/Register">
+                                <NavLink className={setActiveClass} to="/Register">
                                     <button>🔐 Register</button>
-                                </Link>
+                                </NavLink>
                             ) : (
-                                <Link to="/">
-                                    <button>🔒 Logout</button>
-                                </Link>
+                                <NavLink className={setActiveClass}>
+                                    <button onClick={validarToken}>🔒 Logout</button>
+                                </NavLink>
                             )}
                             {/* <Link to="/Register"><button>{token == false ?  "🔐 Register": "🔒 Logout" }</button></Link> */}
                         </li>
                         {/* <li className="item nav-item"><Link to="/Cart"><button>🍕 Cart</button></Link></li> */}
-                        <li className="item nav-item">
-                            <Link to="/Profile">
+                        {/* <li className="item nav-item">
+                            <NavLink className={setActiveClass} to="/Profile">
                                 <button>👤 Profile</button>
-                            </Link>
-                        </li>
+                            </NavLink>
+                        </li> */}
 
                         {/* REFERENCIA 404 */}
-                        <li className="item nav-item">
-                            <Link to="/Pizza">
+                        {/* <li className="item nav-item">
+                            <NavLink className={setActiveClass} to="/Pizza">
                                 <button>🍕 Pizza</button>
-                            </Link>
-                        </li>
+                            </NavLink>
+                        </li> */}
                     </div>
                     <div className="lista2 navbar-nav">
                         <li className="item nav-item compra-total">
