@@ -48,7 +48,6 @@ const Cart = () => {
                     <button className="add" style={{borderRadius:"5px"}}>Pagar</button> : undefined
                 
                 }
-                
                 <h4>Total: {cart.reduce((subtotal, currentValue) => subtotal + currentValue.price * currentValue.count, 0).toLocaleString("es-CL")}</h4>
             </div>
             
