@@ -1,20 +1,20 @@
 import "../Navbar.css";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
 const Navbar = () => {
-    const {cart} = useContext(CartContext);
+    const { cart } = useContext(CartContext);
     /* const total = 25000; */
-    const {token, setToken} = useContext(UserContext);
+    const { token, setToken, logout, profile} = useContext(UserContext);
     /* const token  = true; */
 
     const setActiveClass = ({ isActive }) => (isActive ? "active" : "not-active");
 
-    const validarToken = () => {
+    /* const validarToken = () => {
         (setToken ? setToken(false) : setToken(true));
-    }
+    } */
 
 
     return (
@@ -41,10 +41,37 @@ const Navbar = () => {
                                 <button>🏠 Home</button>
                             </NavLink>
                         </li>
-                        <li className="item nav-item">
-                            {/* Cambiar token de false a true, para revisar botones */}
-                            {token == false ? (
-                                <NavLink  className={setActiveClass} to="/Login">
+                        {token ? (
+                            <>
+                                <li>
+                                    <NavLink className={setActiveClass} to="/Profile">
+                                        <button>👤 Profile</button>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className={setActiveClass}>
+                                        <button onClick={ logout }>🔒 Logout</button>
+                                    </NavLink>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li>
+                                    <NavLink className={setActiveClass} to="/Login">
+                                        <button>🔓 Login</button>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className={setActiveClass} to="/Register">
+                                        <button>🔐 Register</button>
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+                        {/* <li className="item nav-item">
+                            {Cambiar token de false a true, para revisar botones }
+                            {token ? (
+                                <NavLink className={setActiveClass} to="/Login">
                                     <button>🔓 Login</button>
                                 </NavLink>
                             ) : (
@@ -52,21 +79,23 @@ const Navbar = () => {
                                     <button>👤 Profile</button>
                                 </NavLink>
                             )}
-                            {/* <Link to="/Login"><button>{token == false ? "🔓 Login" :"👤 Profile" }</button></Link> */}
+                            {<Link to="/Login"><button>{token == false ? "🔓 Login" :"👤 Profile" }</button></Link>}
                         </li>
                         <li className="item nav-item">
-                            {/* Cambiar token de false a true, para revisar botones */}
+                            {Cambiar token de false a true, para revisar botones }
                             {token == false ? (
                                 <NavLink className={setActiveClass} to="/Register">
                                     <button>🔐 Register</button>
                                 </NavLink>
                             ) : (
                                 <NavLink className={setActiveClass}>
-                                    <button onClick={validarToken}>🔒 Logout</button>
+                                    <button onClick={validarToken} onClick={Logout}>🔒 Logout</button>
                                 </NavLink>
-                            )}
+                            )} }
+                            
                             {/* <Link to="/Register"><button>{token == false ?  "🔐 Register": "🔒 Logout" }</button></Link> */}
-                        </li>
+
+
                         {/* <li className="item nav-item"><Link to="/Cart"><button>🍕 Cart</button></Link></li> */}
                         {/* <li className="item nav-item">
                             <NavLink className={setActiveClass} to="/Profile">

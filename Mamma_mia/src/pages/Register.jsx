@@ -1,12 +1,17 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/userContext";
+
 
 const Register = () => {
     const [email, setMail] = useState("");
     const [pw, setPw] = useState("");
     const [conf_pw, setConfPw] = useState ("");
     const [error, setError] = useState (false);
+    const { register } = useContext(UserContext);
+    const navigate = useNavigate();
 
-    const validarInfo = (e)=>{
+    const validarInfo = async (e)=>{
         e.preventDefault()
         if(!email.trim() || !pw.trim() || !conf_pw.trim()){
             setError(true)
@@ -33,7 +38,20 @@ const Register = () => {
                 }
                 
             }
+
         }
+        try{
+            await register(email, pw);
+            alert("los Datos fueron almacenados Satisfactoriamente")
+            setError(false)
+            console.log("confirmación CLAVES OK")
+            navigate("/login");
+        }
+        catch(error){
+            console.log(error)
+            setError(true)
+        }
+        
         
     }
 

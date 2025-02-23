@@ -10,7 +10,24 @@ const Cart = () => {
     const {token, setToken} = useContext(UserContext);
     /* const [carrito, setCarrito] = useState(carritoInicial) */
 
-
+    const handleCheckout = async () =>{
+    (cart.length > 0) ? alert("Gracias por su compra"): alert("No hay pizzas en el carrito");
+    try{
+        const response = fetch("http://localhost:4000/checkout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({items: cart, setCart}),
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+    catch(error){
+        console.log(error);
+        }
+    }
+    
     const sumar =(evento, pizzaId)=>{
         console.log("sumando")
         setCart(cart.map((item) => item.id === pizzaId ? {...item, count: item.count + 1}:item))
@@ -21,11 +38,14 @@ const Cart = () => {
         setCart(cart.map((item) => item.id === pizzaId && item.count > 0? {...item, count: item.count -1}:item).filter((item) => item.count > 0))
     }
 
+
     return (
         <article className="container" style={{display:"flex", flexDirection:"column"}}>
             <h2>Detalles del Pedido:</h2>
             <ul style={{margin:"0", padding:"0"}}>
-                {cart.map(pizza => 
+                {cart.length > 0 ? (
+                
+                cart.map(pizza => 
                     <li key={pizza.id} style={{display:"flex", gap:"2rem", margin:"1rem", alignItems:"center"}}>
                         <img src={pizza.img} alt="foto pizzas" style={{width:"200px", borderRadius:"5px"}}/>
                         <div style={{width:"25%"}}>
@@ -41,7 +61,8 @@ const Cart = () => {
                         <p style={{margin:"0"}}> {pizza.count}</p>
                         <button className="add" style={{borderRadius:"5px"}} onClick={(e)=> sumar(e,pizza.id)}>Agregar</button>       
                     </li>
-                )}
+                )) : <h3>No hay pizzas en el carrito</h3>
+                }
             </ul>
             <div className="container" style={{display:"flex", justifyContent:"flex-start", gap:"10px"}}>
                 {token ? 
