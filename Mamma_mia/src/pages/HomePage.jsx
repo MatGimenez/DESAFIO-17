@@ -8,7 +8,7 @@ import PizzaCard from "../components/PizzaCard";
 /* import { useContext } from "react";
 import { PizzasContext } from "../context/PizzasContext"; */
 
-const Home = () => {
+const HomePage = () => {
  /*    const [Pizzas] = useContext(PizzasContext); */
     const [Pizzas, setPizzas] = useState([])
 
@@ -73,4 +73,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomePage;

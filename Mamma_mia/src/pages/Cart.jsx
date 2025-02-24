@@ -18,7 +18,7 @@ const Cart = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({items: cart, setCart}),
+            body: JSON.stringify({"cart": [...cart]}),
         });
         const data = await response.json();
         console.log(data);

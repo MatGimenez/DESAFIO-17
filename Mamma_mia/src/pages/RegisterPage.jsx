@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 
 
-const Register = () => {
+const RegisterPage = () => {
     const [email, setMail] = useState("");
     const [pw, setPw] = useState("");
     const [conf_pw, setConfPw] = useState ("");
@@ -45,7 +45,7 @@ const Register = () => {
             alert("los Datos fueron almacenados Satisfactoriamente")
             setError(false)
             console.log("confirmación CLAVES OK")
-            navigate("/login");
+            navigate("/LoginPage");
         }
         catch(error){
             console.log(error)
@@ -78,4 +78,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default RegisterPage;

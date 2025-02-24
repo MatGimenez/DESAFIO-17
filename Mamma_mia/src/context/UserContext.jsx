@@ -21,6 +21,8 @@ const UserProvider = ({ children }) => {
             console.log("Login funciona")
             const data = await response.json();
             alert(data?.error || "Authenticacion satisfactoria!");
+            setToken(data.token);
+            setUser({ email });
             localStorage.setItem("token", data.token);
         } catch (error) {
             console.log(error);

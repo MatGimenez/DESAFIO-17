@@ -57,12 +57,12 @@ const Navbar = () => {
                         ) : (
                             <>
                                 <li>
-                                    <NavLink className={setActiveClass} to="/Login">
+                                    <NavLink className={setActiveClass} to="/LoginPage">
                                         <button>🔓 Login</button>
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink className={setActiveClass} to="/Register">
+                                    <NavLink className={setActiveClass} to="/RegisterPage">
                                         <button>🔐 Register</button>
                                     </NavLink>
                                 </li>

@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 
-const Login = () => {
+const LoginPage = () => {
     const [email, setMail] = useState("");
     const [pw, setPw] = useState("");
     const [error, setError] = useState(false);
@@ -29,7 +29,7 @@ const Login = () => {
                 return;
             }
         }
-        login(email, pw);
+        await login(email, pw);
         navigate("/");
     }
 
@@ -38,11 +38,11 @@ const Login = () => {
             <h2 className="fs-1">Login Usuario</h2>
             <article className="form-group">
                 <label>Email:</label>
-                <input className="form-control" type="email" onChange={(e) => setMail(e.target.value)} value={email} placeholder="Ingrese su Email"/>
+                <input className="form-control" type="email" onChange={(e) => setMail(e.target.value)} value={email}/>
             </article>
             <article className="form-group">
                 <label>Contraseña:</label>
-                <input className="form-control" type="password" onChange={(e) => setPw(e.target.value)} value={pw} placeholder="Ingrese su Contraseña"/>
+                <input className="form-control" type="password" onChange={(e) => setPw(e.target.value)} value={pw} />
                 {error && pw.length < 6 ? <p className="error">password menor a 6 caracteres</p> : null}
             </article>
             <button className="btn btn-dark mt-3" type="submit">Validar</button>
@@ -51,4 +51,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default LoginPage;
