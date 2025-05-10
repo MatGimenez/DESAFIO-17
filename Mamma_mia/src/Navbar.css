@@ -24,6 +24,8 @@
 .lista1, .lista2{
     margin-left: 1rem;
     margin-right: 1rem;
+    list-style: none;
+    text-decoration: none;
 }
 /* .lista2{
     list-style-type: none;
@@ -32,15 +34,25 @@
     font-weight: 500;
 } */
 
-
-.navegador button{
-    border:solid 1px white;
-    border-radius: 5px;
+.active button{
+    background-color: tomato;
+    color:black;
+    font-weight: 500;
+}
+.not-active button{
     background-color: transparent;
     color: white;
 }
 
+.navegador button{
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+
+
 .compra-total button{
+    background-color: #323232;
     border:solid 1px aqua;
     color:aqua;
 }
